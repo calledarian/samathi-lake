@@ -1,65 +1,64 @@
-import Image from "next/image";
+'use client'
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 600, once: true });
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* HERO */}
+      <header
+        className="vh-100 d-flex flex-column justify-content-center align-items-center text-center text-white"
+        data-aos="fade-in"
+        style={{
+          backgroundImage: "url('/samathi-lake-birdview.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          position: "relative",
+        }}
+      >
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+        ></div>
+        <div className="position-relative">
+          <h1 className="display-2 fw-bold mb-3">Samathi Lake</h1>
+          <p className="lead fs-4">Escape • Relax • Explore</p>
+          <a href="/gallery" className="btn btn-outline-light mt-3 px-4 py-2 mx-2">
+            Explore Gallery ↓
+          </a>
+          <a href="/menu" className="btn btn-outline-light mt-3 px-4 py-2 mx-2">
+            Explore Menu {'->'}
+          </a>
+        </div>
+      </header>
+
+      {/* ABOUT */}
+      <section
+        className="bg-light text-center py-5 border-top"
+        data-aos="fade-up"
+      >
+        <div className="container">
+          <h3 className="fw-bold mb-3">About Samathi Lake</h3>
+          <p className="text-muted mx-auto" style={{ maxWidth: "600px" }}>
+            Tucked away in Phnom Penh, Samathi Lake offers serene water views,
+            kayaking adventures, peaceful fishing, and cozy lakeside rooms.
+            Enjoy good food, fresh air, and a break from the busy city life.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://maps.google.com"
             target="_blank"
-            rel="noopener noreferrer"
+            className="btn btn-outline-dark mt-3"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            View on Google Maps
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }

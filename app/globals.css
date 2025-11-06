@@ -1,26 +1,38 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
+}
+
+img {
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+}
+
+
+/* Add this to your global stylesheet (e.g., globals.css) */
+
+.masonry-grid {
+    /* Set the number of columns and the gap between them */
+    column-count: 3; /* For desktop/md-drives */
+    column-gap: 1.5rem; /* Matches the Bootstrap g-3 gap */
+}
+
+/* Adjust column count for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+    .masonry-grid {
+        column-count: 2; /* 2 columns for smaller screens */
+    }
+}
+
+/* Ensure images and their containers do not break across columns */
+.masonry-grid > div {
+    display: inline-block; /* Essential for masonry layout */
+    width: 100%; /* Make each item take full width of its column */
+    margin-bottom: 1.5rem; /* Add vertical spacing matching the gap */
 }
