@@ -211,7 +211,8 @@ const RestaurantMenu: React.FC = () => {
           </h1>
 
           {menuData.map((category) => (
-            <div key={category.id} className="mb-5">
+            <div key={category.id} className="mb-5"
+              data-aos="fade-in">
               <h3
                 className="mb-4 fw-bold"
                 style={{

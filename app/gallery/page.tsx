@@ -27,7 +27,7 @@ export default function Gallery() {
             {/* HERO */}
             <header
                 className="vh-100 d-flex flex-column justify-content-center align-items-center text-center text-white"
-                        data-aos="fade-in"
+                data-aos="fade-in"
 
                 style={{
                     backgroundImage: "url('/samathi-lake.jpg')",
@@ -51,14 +51,15 @@ export default function Gallery() {
                     </a>
                 </div>
             </header>
-            <section className="container py-5" id="gallery" data-aos="fade-up">
+            <section className="container py-5" id="gallery">
                 <h2 className="text-center mb-4 fw-bold">Discover the Beauty</h2>
                 <LightGallery
                     speed={500}
                     plugins={[lgZoom, lgThumbnail]}
                     selector=".gallery-item"
                 >
-                    <div className="masonry-grid">
+                    <div className="masonry-grid"
+                        data-aos="fade-in">
                         {photos.map((p, i) => (
                             <div key={i}>
                                 <a href={p.src} className="gallery-item">

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import path from 'path';
 
 export default function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +13,7 @@ export default function Navigation() {
         { name: 'Home', path: '/' },
         { name: 'Gallery', path: '/gallery' },
         { name: 'Menu', path: '/menu' },
+        { name: 'Rooms', path: '/rooms' },
         // 
     ];
 
